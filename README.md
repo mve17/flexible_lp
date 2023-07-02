@@ -46,7 +46,7 @@ print(opt_val, opt_vec)
 ```
 This outputs the following:
 ```
->>> 50.0 [0, 10.0]
+50.0 [0, 10.0]
 ```
 Note it will solve using floating point numbers by default. The next example shows how to solve exactly with fractions.
 
@@ -64,9 +64,9 @@ print(opt_val, opt_vec)
 ```
 This outputs the following:
 ```
->>> 50 [0, Fraction(10, 1)]
+50 [0, Fraction(10, 1)]
 ```
-# Example 2: Solving an LP with Unbounded Value (and with Fractions)
+# Example 2: Solving an LP with Unbounded Value (and using Fractions)
 $$\text{minimize}\ -2x + 7y + z$$
 
 $$x + y + z \geq 10,$$
