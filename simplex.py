@@ -9,7 +9,7 @@ I have not worked to prevent 'cycling', but my understanding is that this doesn'
 
 You are free, with attribution, to use this code in any way.
 '''
-from tableau import Tableau
+from .tableau import Tableau
 
 def phase_1(tableau, verbose = False):
 	'''
@@ -192,7 +192,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 					or just "value_map = Fraction".
 
 	Return:
-		usual solution :: (optimal_value, x_vector_obtaining_this_value)
+		usual problem :: (optimal_value, x_vector_obtaining_this_value)
 		infeasible problem :: (None, "infeasible program, bad row encountered in phase 1.")
 		unbounded problem :: (float("inf"} or float("-inf"), x_vector_obtaining_this_value)
 
@@ -275,7 +275,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 	
 if __name__ == '__main__':
 	from fractions import Fraction
-	test = [5]
+	test = []
 	if -1 in test: #bad arguments
 		print(linprog(c = 5))
 	if -2 in test:
@@ -322,3 +322,9 @@ if __name__ == '__main__':
 		import matplotlib.pyplot as plt
 		plt.plot(ds, times)
 		plt.show()
+
+
+from fractions import Fraction
+print(linprog(c = [Fraction(4,5),-Fraction(5)], A_l = [[Fraction(12,7),-Fraction(1,2)]], b_l = [Fraction(10)], maximize = True))
+
+linprog(c = [Fraction(4,5), 5], A_l = [[-Fraction(12,7),Fraction(1,2)]], b_l = [10], maximize = True, value_map = Fraction)
