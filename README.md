@@ -51,8 +51,11 @@ This outputs the following:
 ```
 # Example 2: Solving an Integer LP over Fractions with Unbounded Value
 $$\text{minimize}\ -2x + 7y + z$$
+
 $$x + y + z \geq 10,$$
+
 $$x+3y+1\geq 9,$$
+
 $$x,y,z\geq0.$$
 ```
 from simplex import linprog
