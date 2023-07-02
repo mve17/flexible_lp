@@ -33,7 +33,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 	'''
 ```
 
-# Examples
+# Example 1: Solving an Integer LP over Fractions
 Suppose we had the following lp
 $$\text{minimize}\ 3x + 5y;\ x + y \leq 10,\ x,y\geq0.$$
 Its optimal value is 50, with $x = 0, y = 10$.
@@ -45,8 +45,18 @@ from fractions import Fraction
 opt_val, opt_vec = linprog(c = [3,5], A_l = [[1, 1]], b_l = [10], maximize = True, value_map = Fraction)
 print(opt_val, opt_vec)
 ```
-This outputs the following
+This outputs the following:
 ```
 >>> 50 [0, Fraction(10, 1)]
+```
+# Example 2: Solving an Integer LP over Fractions with Unbounded Value
+$$\text{minimize}\ -2x + 7y + z$$
+$$x + y + z \geq 10,$$
+$$x+3y+1\geq 9,$$
+$$x,y,z\geq0.$$
+```
+from simplex import linprog
+from fractions import Fraction
+print(linprog(c = [-2,7,1], A_g = [[5,1,1], [1,3,1]], b_g = [5,9], value_map = Fraction))
 ```
 
