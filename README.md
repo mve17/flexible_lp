@@ -68,12 +68,12 @@ This outputs the following:
 50 [0, Fraction(10, 1)]
 ```
 # Example 2: Solving an LP with fractional coefficients
-$$\text{maximize}\ \frac{4}{5}x - 5y;\ -\frac{12}{7}x - \frac{1}{2}y \leq 10,\ x,y\geq0.$$
+$$\text{maximize}\ \frac{4}{5}x - 5y;\ \frac{12}{7}x - \frac{1}{2}y \leq 10,\ x,y\geq0.$$
 
 ```
 from simplex import linprog
 from fractions import Fraction
-print(linprog(c = [Fraction(4,5),-Fraction(5)], A_l = [[Fraction(12,7),-Fraction(1,2)]], b_l = [Fraction(10)], maximize = True))
+print(linprog(c = [Fraction(4,5), -Fraction(5)], A_l = [[Fraction(12,7), -Fraction(1,2)]], b_l = [Fraction(10)], maximize = True))
 ```
 ```
 (Fraction(14, 3), [Fraction(35, 6), 0])
