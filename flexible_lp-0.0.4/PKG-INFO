@@ -1,3 +1,17 @@
+Metadata-Version: 2.1
+Name: flexible_lp
+Version: 0.0.4
+Summary: A pure python3 library to solve linear programs using, for example, fractions.
+Project-URL: Homepage, https://github.com/mve17/flexible_lp/
+Project-URL: Bug Tracker, https://github.com/mve17/flexible_lp/issues
+Author-email: Matthew Ellison <matthew.v.ellison@gmail.com>
+License-File: LICENSE
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
 # flexible_lp
 A pure python3 library to solve linear programs using, for example, fractions.
 

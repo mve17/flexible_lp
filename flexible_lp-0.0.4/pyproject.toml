@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "flexible_lp"
+version = "0.0.4"
+authors = [
+  {name="Matthew Ellison", email="matthew.v.ellison@gmail.com"},
+]
+description = "A pure python3 library to solve linear programs using, for example, fractions."
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/mve17/flexible_lp/"
+"Bug Tracker" = "https://github.com/mve17/flexible_lp/issues"
