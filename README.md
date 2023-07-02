@@ -35,7 +35,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 
 # Examples
 Suppose we had the following lp
-$$\text{minimize} 3x + 5y;\ x + y \leq 10,\ x,y\geq0.$$
+$$\text{minimize}\ 3x + 5y;\ x + y \leq 10,\ x,y\geq0.$$
 Its optimal value is 50, with $x = 0, y = 10$.
 Here is a python3 file to solve using fractions:
 ```
