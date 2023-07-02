@@ -35,7 +35,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 # Example 0: Solving an LP
 Suppose we had the following lp
 $$\text{maximize}\ 3x + 5y;\ x + y \leq 10,\ x,y\geq0.$$
-Its optimal value is 50, with $x = 0, y = 10$.
+Its optimal value is `50`, with $x = 0, y = 10$.
 Here is a python3 file to solve it:
 ```
 from simplex import linprog
@@ -49,8 +49,9 @@ This outputs the following:
 50.0 [0, 10.0]
 ```
 Note it will solve using floating point numbers by default. The next example shows how to solve exactly with fractions.
+Note also that we use the `A_l` and `b_l` parameters for the "less than" constraint. You can use any combination of constraints. See the docstring.
 
-# Example 1: Solving an LP with Fractions
+# Example 1: Solving an LP with fractions
 Suppose we have the same lp
 $$\text{maximize}\ 3x + 5y;\ x + y \leq 10,\ x,y\geq0.$$
 Here is a python3 file to solve using fractions. 
@@ -66,7 +67,22 @@ This outputs the following:
 ```
 50 [0, Fraction(10, 1)]
 ```
-# Example 2: Solving an LP with Unbounded Value (and using Fractions)
+# Example 2: Solving an LP with fractional coefficients
+$$\text{maximize}\ \frac{4}{5}x - 5y;\ -\frac{12}{7}x - \frac{1}{2}y \leq 10,\ x,y\geq0.$$
+
+```
+from simplex import linprog
+from fractions import Fraction
+print(linprog(c = [Fraction(4,5),-Fraction(5)], A_l = [[Fraction(12,7),-Fraction(1,2)]], b_l = [Fraction(10)], maximize = True))
+```
+```
+(Fraction(14, 3), [Fraction(35, 6), 0])
+```
+Note that `value_map` is not needed here since everything already starts as Fraction objects. But we could have still used it and saved ourselves a litte pain writing out fractions:
+```
+linprog(c = [Fraction(4,5), 5], A_l = [[-Fraction(12,7),Fraction(1,2)]], b_l = [10], maximize = True, value_map = Fraction)
+```
+# Example 3: Solving an LP with unbounded value (and using fractions)
 $$\text{minimize}\ -2x + 7y + z$$
 
 $$x + y + z \geq 10,$$
@@ -81,6 +97,7 @@ print(linprog(c = [-2,7,1], A_g = [[5,1,1], [1,3,1]], b_g = [5,9], value_map = F
 ```
 
 ```
->>> (-inf, [inf, 0, 0])
+(-inf, [inf, 0, 0])
 ```
+
 
