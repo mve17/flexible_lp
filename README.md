@@ -21,7 +21,7 @@ def linprog(c, d = 0, A_g = None, b_g = None, A_e = None, b_e = None, A_l = None
 					or just "value_map = Fraction".
 
 	Return:
-		usual solution :: (optimal_value, x_vector_obtaining_this_value)
+		usual problem :: (optimal_value, x_vector_obtaining_this_value)
 		infeasible problem :: (None, "infeasible program, bad row encountered in phase 1.")
 		unbounded problem :: (float("inf"} or float("-inf"), x_vector_obtaining_this_value)
 
