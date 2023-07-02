@@ -54,7 +54,7 @@ $$\text{minimize}\ -2x + 7y + z$$
 
 $$x + y + z \geq 10,$$
 
-$$x+3y+1\geq 9,$$
+$$5x+3y+1\geq 9,$$
 
 $$x,y,z\geq0.$$
 ```
@@ -63,3 +63,6 @@ from fractions import Fraction
 print(linprog(c = [-2,7,1], A_g = [[5,1,1], [1,3,1]], b_g = [5,9], value_map = Fraction))
 ```
 
+```
+>>> (-inf, [inf, 0, 0])
+```
